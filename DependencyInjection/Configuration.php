@@ -35,18 +35,12 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('root_dir')
                     ->defaultValue('%kernel.root_dir%/../')
-                    ->isRequired()
-                    ->cannotBeEmpty()
                 ->end()
                 ->scalarNode('index')
                     ->defaultValue('README.md')
-                    ->isRequired()
-                    ->cannotBeEmpty()
                 ->end()
                 ->scalarNode('base')
                     ->defaultValue('ElaoReadmeBundle:Readme:index.html.twig')
-                    ->isRequired()
-                    ->cannotBeEmpty()
                 ->end()
             ->end();
 
