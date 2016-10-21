@@ -1,0 +1,38 @@
+{
+  "name": "elao/readme-bundle",
+  "type": "symfony-bundle",
+  "description": "Provide a route to navigate through .md readme files",
+  "keywords": ["symfony", "bundle", "readme", "markdown", "doc"],
+  "homepage": "https://github.com/Elao/ReadmeBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Elao",
+      "homepage": "https://github.com/Elao"
+    },
+    {
+      "name": "Maxime Colin",
+      "homepage": "https://github.com/maximecolin"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "symfony/framework-bundle": "~2.8|~3.0",
+    "erusev/parsedown": "~1.6",
+    "twig/twig": "^1.26"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Elao\\Bundle\\ReadmeBundle\\": "."
+    }
+  },
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
