@@ -24,3 +24,7 @@ elao_readme:
 _elao_readme:
     resource: "@ElaoReadmeBundle/Resources/config/routing.xml"
 ```
+
+## Usage
+
+Go to ```http://your-domain.dev/app_dev.php/_readme```
