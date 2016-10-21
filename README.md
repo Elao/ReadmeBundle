@@ -12,9 +12,10 @@ composer require elao/readme-bundle
 
 ```
 elao_readme:
-    root_dir: %kernel.root_dir%/../
-    index:    README.md
-    base:     ElaoReadmeBundle:Readme:index.html.twig
+    root_dir:       "%kernel.root_dir%/../"
+    index:          README.md
+    base_template:  ElaoReadmeBundle:Readme:base.html.twig
+    index_template: ElaoReadmeBundle:Readme:index.html.twig
 ```
 
 ## Routing
