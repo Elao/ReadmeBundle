@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
+    <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{{ tilte }}</title>
+        <title>{{ title }}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style type="text/css">
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .directory {
+                background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik00NjMuNTE4LDk0LjkwOUgxOTMuODg1di0xMC4zN2MwLTIyLjkwOC0xOC41NzQtNDEuNDgyLTQxLjQ4Mi00MS40ODJINDguNjk5ICBjLTIyLjkwOCwwLTQxLjQ4MiwxOC41NzQtNDEuNDgyLDQxLjQ4MnY1MS44NTJ2NzIuNTkzdjIxNy43OGMwLDIyLjkwNywxOC41NzQsNDEuNDgyLDQxLjQ4Miw0MS40ODJoNDE0LjgxOSAgYzIyLjkwOCwwLDQxLjQ4Mi0xOC41NzUsNDEuNDgyLTQxLjQ4MlYxMzYuMzkxQzUwNSwxMTMuNDgzLDQ4Ni40MjYsOTQuOTA5LDQ2My41MTgsOTQuOTA5eiBNMjcuOTU4LDg0LjUzOSAgYzAtMTEuNDM1LDkuMzA4LTIwLjc0MSwyMC43NDEtMjAuNzQxaDEwMy43MDVjMTEuNDMzLDAsMjAuNzQxLDkuMzA2LDIwLjc0MSwyMC43NDF2MTAuMzd2MjAuNzQxaDIwLjc0MWgyNjkuNjMzICBjMTEuNDMzLDAsMjAuNzQxLDkuMzA2LDIwLjc0MSwyMC43NDF2MjAuNzQxSDI3Ljk1OHYtMjAuNzQxVjg0LjUzOXogTTQ2My41MTgsNDQ3LjUwNkg0OC42OTljLTExLjQzMywwLTIwLjc0MS05LjMwNy0yMC43NDEtMjAuNzQxICB2LTIxNy43OHYtMzEuMTExaDQ1Ni4zMDF2MjQ4Ljg5MkM0ODQuMjU5LDQzOC4xOTgsNDc0Ljk1Miw0NDcuNTA2LDQ2My41MTgsNDQ3LjUwNnoiIGZpbGw9IiMzNzQwNEQiLz48L3N2Zz4=');
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-size: contain;
+            }
+
+            .file {
+                background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQ4IDQ4IiBoZWlnaHQ9IjQ4cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0OCA0OCIgd2lkdGg9IjQ4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM3LDQ3SDExYy0yLjIwOSwwLTQtMS43OTEtNC00VjVjMC0yLjIwOSwxLjc5MS00LDQtNGgxOC45NzMgIGMwLjAwMiwwLDAuMDA1LDAsMC4wMDcsMGgwLjAySDMwYzAuMzIsMCwwLjU5MywwLjE2MSwwLjc3NiwwLjM5NWw5LjgyOSw5LjgyOUM0MC44NCwxMS40MDcsNDEsMTEuNjgsNDEsMTJsMCwwdjAuMDIxICBjMCwwLjAwMiwwLDAuMDAzLDAsMC4wMDVWNDNDNDEsNDUuMjA5LDM5LjIwOSw0NywzNyw0N3ogTTMxLDQuMzgxVjExaDYuNjE5TDMxLDQuMzgxeiBNMzksMTNoLTljLTAuNTUzLDAtMS0wLjQ0OC0xLTFWM0gxMSAgQzkuODk2LDMsOSwzLjg5Niw5LDV2MzhjMCwxLjEwNCwwLjg5NiwyLDIsMmgyNmMxLjEwNCwwLDItMC44OTYsMi0yVjEzeiBNMzMsMzlIMTVjLTAuNTUzLDAtMS0wLjQ0Ny0xLTFjMC0wLjU1MiwwLjQ0Ny0xLDEtMWgxOCAgYzAuNTUzLDAsMSwwLjQ0OCwxLDFDMzQsMzguNTUzLDMzLjU1MywzOSwzMywzOXogTTMzLDMxSDE1Yy0wLjU1MywwLTEtMC40NDctMS0xYzAtMC41NTIsMC40NDctMSwxLTFoMThjMC41NTMsMCwxLDAuNDQ4LDEsMSAgQzM0LDMwLjU1MywzMy41NTMsMzEsMzMsMzF6IE0zMywyM0gxNWMtMC41NTMsMC0xLTAuNDQ3LTEtMWMwLTAuNTUyLDAuNDQ3LTEsMS0xaDE4YzAuNTUzLDAsMSwwLjQ0OCwxLDFDMzQsMjIuNTUzLDMzLjU1MywyMywzMywyMyAgeiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+');
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-size: contain;
+            }
+        </style>
     </head>
     <body>
-        {{ html|html }}
+        <h1>{{ path }}</h1>
+        <ul>
+            {% for directory in directories %}
+                <li>
+                    <i class="directory"></i>
+                    <a href="?path={{ directory.path }}">{{ directory.name }}</a>
+                </li>
+            {% endfor %}
+            {% for file in files %}
+                <li>
+                    <i class="file"></i>
+                    <a href="?path={{ file.path }}">{{ file.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

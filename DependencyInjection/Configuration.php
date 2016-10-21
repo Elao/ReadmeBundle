@@ -39,7 +39,10 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('index')
                     ->defaultValue('README.md')
                 ->end()
-                ->scalarNode('base')
+                ->scalarNode('base_template')
+                    ->defaultValue('ElaoReadmeBundle:Readme:base.html.twig')
+                ->end()
+                ->scalarNode('index_template')
                     ->defaultValue('ElaoReadmeBundle:Readme:index.html.twig')
                 ->end()
             ->end();

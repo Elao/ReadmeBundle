@@ -35,7 +35,8 @@ class ElaoReadmeExtension extends Extension
 
         $container->setParameter('elao_readme.root_dir', $config['root_dir']);
         $container->setParameter('elao_readme.index', $config['index']);
-        $container->setParameter('elao_readme.base', $config['base']);
+        $container->setParameter('elao_readme.base_template', $config['base_template']);
+        $container->setParameter('elao_readme.index_template', $config['index_template']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
